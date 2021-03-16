@@ -1,0 +1,42 @@
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+    <definition name="baseLayout" template="/WEB-INF/jsp/common/layout.jsp">    
+        <put-attribute name="title"  value="Proyecto"/>
+        <put-attribute name="header" value="/WEB-INF/jsp/common/header.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/jsp/common/footer.jsp"/>
+    </definition>
+   
+    <definition name="Home" extends="baseLayout">
+        <put-attribute name="title" value="Proyecto"/>
+        <put-attribute name="body"  value="/WEB-INF/jsp/home.jsp"/>
+    </definition>
+      
+	<definition name="ErrorGenerico" extends="baseLayout">
+	  <put-attribute name="title" value="Página de error"/>
+	  <put-attribute name="body" value="/WEB-INF/jsp/common/error_generico.jsp"/>
+	</definition> 
+	
+	<definition name="Mensaje" extends="baseLayout">
+	  <put-attribute name="title" value="Resultado de la operación"/>
+	  <put-attribute name="body" value="/WEB-INF/jsp/common/mensaje.jsp"/>
+	</definition> 
+	
+	<definition name="ListadoProductos" extends="baseLayout">
+        <put-attribute name="title" value="Listado de productos"/>
+        <put-attribute name="body"  value="/WEB-INF/jsp/listadoProductos.jsp"/>
+    </definition> 
+    
+	<definition name="ListadoProductosCarro" extends="baseLayout">
+        <put-attribute name="title" value="Listado de productos en el carro"/>
+        <put-attribute name="body"  value="/WEB-INF/jsp/listadoProductosCarro.jsp"/>
+    </definition>
+    
+    <definition name="DatosClienteForm" extends="baseLayout">
+        <put-attribute name="title" value="Datos del cliente"/>
+        <put-attribute name="body"  value="/WEB-INF/jsp/datosClienteForm.jsp"/>
+    </definition>   
+      
+</tiles-definitions>

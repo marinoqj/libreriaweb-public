@@ -25,12 +25,15 @@ pipeline {
       }
     }
 	
-	stage('Create and push container') {
-      steps {        
+	
+    stage('Create and push container') {
+      steps {
+        withCredentials([usernamePassword(credentialsId: 'docker-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
           withMaven(maven : 'mvn-3.6.3') {
-            bat "mvn clean package dockerfile:build dockerfile:push"
+            sh "mvn jib:build"
           }
         }
-      }     
+      } 
+    }
   }
 }

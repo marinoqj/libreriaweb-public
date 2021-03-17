@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: libreriaweb-public
+spec:
+  selector:
+    matchLabels:
+      app: libreriaweb
+      tier: frontend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: libreriaweb
+        tier: frontend
+    spec:
+      initContainers:
+      - image: marinoqj/libreriaweb-public:1.0.6
+        imagePullPolicy: Always
+        name: war
+        command:
+          - "cp"
+          - "/libreriaweb-public.war"
+          - "/app"
+        volumeMounts:
+        - mountPath: /app
+          name: app-volume
+      containers:
+      - image: tomcat:9.0.30-jdk11-openjdk
+        name: tomcat
+        command: ["catalina.sh", "run"]
+        volumeMounts:
+        - mountPath: /usr/local/tomcat/webapps
+          name: app-volume
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+      volumes:
+      - name: app-volume
+        emptyDir: {}

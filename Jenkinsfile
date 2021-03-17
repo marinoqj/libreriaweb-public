@@ -35,5 +35,14 @@ pipeline {
         }
       } 
     }
+    
+    stage('Deploy to K8s') {
+      steps {
+        withKubeConfig([credentialsId: 'kubernetes-config']) {
+          bat 'kubectl apply -f libreriaweb-public-deployment.yaml'
+        }
+      } 
+    }    
+    
   }
 }

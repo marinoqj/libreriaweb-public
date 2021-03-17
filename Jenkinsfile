@@ -29,7 +29,7 @@ pipeline {
 	stage('Create and push container') {
       steps {        
           withMaven(maven : 'mvn-3.6.3') {
-            bat "mvn clean package dockerfile:build dockerfile:push"
+            bat "mvn dockerfile:build dockerfile:push"
           }
         }
       } 

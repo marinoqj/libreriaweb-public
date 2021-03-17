@@ -28,7 +28,7 @@ pipeline {
 	
     stage('Create and push container') {
       steps {
-        withCredentials([usernamePassword(credentialsId: 'docker-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+        withCredentials([usernamePassword(credentialsId: 'docker-hub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
           withMaven(maven : 'mvn-3.6.3') {
             sh "mvn jib:build"
           }

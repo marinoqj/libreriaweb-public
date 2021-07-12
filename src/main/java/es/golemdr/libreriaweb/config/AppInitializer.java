@@ -24,7 +24,7 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
 	}
 
 
-	// Prueba
+	// Prueba para token
 	
 
 }

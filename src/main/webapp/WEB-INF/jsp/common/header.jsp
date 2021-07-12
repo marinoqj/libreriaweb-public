@@ -2,9 +2,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light fixed-top scrolling-navbar" style="background-color: #e3f2fd;">
 	<div class="container">
-		<a class="navbar-brand" href="#"> <img
-			src='<spring:url value="/static/imagenes/logo.png"/>' height="40"
-			class="d-inline-block align-top">
+		<a class="navbar-brand" href="#"> <img src='<spring:url value="/static/imagenes/logo-golemdr.gif"/>' height="70"  class="d-inline-block align-top">
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"

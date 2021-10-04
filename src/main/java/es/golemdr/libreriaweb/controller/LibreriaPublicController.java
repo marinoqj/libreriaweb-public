@@ -19,8 +19,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -56,6 +54,20 @@ public class LibreriaPublicController {
 
 	@Resource
 	private CarroService carroService;
+	
+	
+	@GetMapping(UrlConstants.URL_HOME)
+	public String goHome() {
+
+		return ForwardConstants.FWD_HOME;
+
+	}
+	
+	@GetMapping(UrlConstants.URL_CONTACTO)
+	public String contacto() {
+		
+		return ForwardConstants.FWD_CONTACTO;
+	}
 
 
 	@GetMapping(UrlConstants.URL_LISTADO_PRODUCTOS)

@@ -9,6 +9,7 @@ public class UrlConstants {
 	public static final String URL_LOGIN_CONTROLLER = "/loginController.do";
 	public static final String URL_LOGIN_FAILURE = "/login-failure.do";	
 	public static final String URL_HOME = "/home.do";
+	public static final String URL_CONTACTO = "/contacto.do";
 
 	
 	// Cesta

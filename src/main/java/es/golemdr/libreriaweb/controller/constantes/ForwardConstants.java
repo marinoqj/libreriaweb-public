@@ -6,6 +6,7 @@ public class ForwardConstants {
 	private ForwardConstants() {};
 	
 	public static final String FWD_HOME = "Home";
+	public static final String FWD_CONTACTO = "Contacto";
 	public static final String FWD_LOGIN = "Login";
 	public static final String FWD_ACCESO_DENEGADO = "AccesoDenegado";
 	public static final String FWD_MENSAJE = "Mensaje";

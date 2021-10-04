@@ -7,7 +7,6 @@ var total = <c:if  test="${not empty pedido.total}">${pedido.total}</c:if> <c:if
 var numArticulos = <c:if  test="${not empty pedido.numArticulos}">${pedido.numArticulos}</c:if> <c:if  test="${empty pedido.numArticulos}">0</c:if>;
 var itemsCarro = <c:if  test="${not empty itemsCarro}">${itemsCarro}</c:if> <c:if  test="${empty itemsCarro}">[]</c:if>;
 
-
 function anyadirProducto(id, name, price){
 
 	total+= price;
@@ -79,21 +78,10 @@ function decrementarProducto(id){
 	total-= precioItem;
 	numArticulos-= 1;
 	
-	if(cantidadItem == 0){
-		
-		if(confirm("¿Desea eliminar el producto del carrito?")){
-			
-			itemsCarro.splice(itemIndex, 1);
-			ocultarCapa("input_" + id);
-			mostrarCapa("button_" + id)
-		}else{
-			
-			itemsCarro[i].cantidad += 1;
-			cantidadItem = itemsCarro[i].cantidad;
-			total+= precioItem;
-			numArticulos+= 1;
-
-		}		
+	if(cantidadItem == 0){		
+		itemsCarro.splice(itemIndex, 1);
+		ocultarCapa("input_" + id);
+		mostrarCapa("button_" + id)
 	}
 
 
@@ -124,8 +112,6 @@ function ocultarCapa(idCapa) {
 	}
 }
 
-
-
 </script>
 <br>
 <br>
@@ -145,8 +131,8 @@ function ocultarCapa(idCapa) {
          <p class="text-center">¿Desea eliminar el producto del carrito?</p>
       </div>
       <div class="modal-footer">         
-         <button type="button" class="btn btn-secondary btn-sm" id="modal-btn-cancelar"><i class="fas fa-times-circle"></i>&nbsp;&nbsp;Cancelar</button>
-         <button type="button" class="btn btn-primary btn-sm" id="modal-btn-aceptar"><i class="fas fa-times-circle"></i>&nbsp;&nbsp;Aceptar</button>         
+         <button type="button" class="btn btn-secondary btn-sm" id="modal-btn-cancelar" data-dismiss="modal"><i class="fas fa-times-circle"></i>&nbsp;&nbsp;Cancelar</button>
+         <button type="button" class="btn btn-primary btn-sm" id="modal-btn-aceptar" onclick="ejecutarConfirm()"><i class="fas fa-times-circle"></i>&nbsp;&nbsp;Aceptar</button>         
       </div>
     </div>
   </div>
@@ -154,25 +140,23 @@ function ocultarCapa(idCapa) {
 <!-- ./ Confirm Modal -->
 
 
-<c:if test="${!empty productos}">
-
+<div class="container">
 	<br>
 
 	<div class="row">
 		<div class="col-md-12">
 			<nav aria-label="breadcrumb">
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item active"><i
-						class="fas fa-list-alt fa-lg mr-1"></i><i
-						class="fas fa-users fa-lg mr-2"></i>Librería / Novedades</li>
+					<li class="breadcrumb-item active">
+						<em class="fas fa-book fa-lg mr-2"></em>Librería / Novedades</li>
 				</ol>
 			</nav>
 		</div>
 	</div>
 
+<c:if test="${!empty productos}">
 
 	<div class="row">
-
 		<c:forEach items="${productos}" var="producto">
 			<div class="col-lg-3 mb-5">
 				<!-- Card -->
@@ -196,10 +180,10 @@ function ocultarCapa(idCapa) {
 						</div>
 						<div id="input_${producto.idProducto}" style="display: none;">
 							<i class="fas fa-minus-circle fa-lg"
-								style="color: gray; cursor: pointer"
+								style="color: orange; cursor: pointer"
 								onclick="decrementarProducto(${producto.idProducto})"></i> <label
-								id="cantidad_${producto.idProducto}"></label> <i
-								class="fas fa-plus-circle fa-lg"
+								id="cantidad_${producto.idProducto}"></label> 
+								<i class="fas fa-plus-circle fa-lg"
 								style="color: green; cursor: pointer"
 								onclick="incrementarProducto(${producto.idProducto})"></i>
 						</div>
@@ -211,16 +195,21 @@ function ocultarCapa(idCapa) {
 		</c:forEach>
 
 	</div>
+	
 </c:if>
+</div>
 
-<c:if test="${empty productos}">>
-		<div class="row">
+
+<c:if test="${empty productos}">
+<div class="container">
+	<div class="row">
 		<div class="col-md-3 col-lg-2">&nbsp;</div>
 		<div class="col-md-6 col-lg-4 align-middle alert alert-warning">
-			<i class="fas fa-info-circle fa-2x"></i> No se encontraron pedidos que mostrar
+			<i class="fas fa-info-circle fa-2x"></i> La tienda est&aacute; vac&iacute;a
 		</div>
 		<div class="col-md-3 col-lg-2">&nbsp;</div>
 	</div>
+</div>
 </c:if>
 <br>
 <br>

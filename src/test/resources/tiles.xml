@@ -10,17 +10,17 @@
     </definition>
    
     <definition name="Home" extends="baseLayout">
-        <put-attribute name="title" value="Plantilla"/>
+        <put-attribute name="title" value="Libreria Web"/>
         <put-attribute name="body"  value="/WEB-INF/jsp/home.jsp"/>
     </definition>
     
     <definition name="Mensaje" extends="baseLayout">
-        <put-attribute name="title" value="Plantilla"/>
+        <put-attribute name="title" value="Libreria Web"/>
         <put-attribute name="body"  value="/WEB-INF/jsp/common/mensaje.jsp"/>
     </definition>
     
 	<definition name="ErrorGenerico" extends="baseLayout">
-	  <put-attribute name="title" value="Página de error"/>
+	  <put-attribute name="title" value="Pagina de error"/>
 	  <put-attribute name="body" value="/WEB-INF/jsp/common/error_generico.jsp"/>
 	</definition>    
 	
@@ -38,5 +38,10 @@
         <put-attribute name="title" value="Datos del cliente"/>
         <put-attribute name="body"  value="/WEB-INF/jsp/datosClienteForm.jsp"/>
     </definition>   
+    
+    <definition name="Contacto" extends="baseLayout">
+        <put-attribute name="title"  value="Libreria Web"/>
+        <put-attribute name="body"  value="/WEB-INF/jsp/contacto.jsp"/>
+    </definition>  
       
 </tiles-definitions>

@@ -83,7 +83,7 @@ function continuarComprando(){
 		<br>
 		<br>
 		
-		
+<div class="container">		
 		<div class="row">
 			<div class="col-md-12">
 				<nav aria-label="breadcrumb">
@@ -119,8 +119,8 @@ function continuarComprando(){
 		<label for="dni">DNI</label>
 		<div class="input-group">
 		    <form:input path="dni" class="form-control" id="inputDNI"/><form:errors path="dni" element="div" id="rojo"/>
-		    <span class="input-group-btn" style="width:0;">
-		        <button type="button" class="btn btn-primary" onclick="javascript:existeCliente();"><i class="fas fa-arrow-alt-circle-down fa-lg mr-2"></i></button>
+		    <span class="input-group-btn">
+		        <i class="fas blue-text fa-arrow-alt-circle-down fa-2x pl-3" onclick="javascript:existeCliente();" style="cursor: pointer;"></i>
 		    </span>
 		</div>
 	</div>
@@ -156,7 +156,7 @@ function continuarComprando(){
 		</div>
 	</div>															
 
-
+</div><!-- container -->
 </form:form>
 
 <br>

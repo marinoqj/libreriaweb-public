@@ -15,16 +15,6 @@ pipeline {
       }
     }
 
-    stage('SonarQube analysis') {
-      steps {
-        withSonarQubeEnv(installationName: 'sonarqube-server') {
-          withMaven(maven : 'mvn-3.6.3') {
-            bat 'mvn sonar:sonar -Dsonar.dependencyCheck.jsonReportPath=target/dependency-check-report.json -Dsonar.dependencyCheck.xmlReportPath=target/dependency-check-report.xml -Dsonar.dependencyCheck.htmlReportPath=target/dependency-check-report.html'
-          }
-        }
-      }
-    }
-	
 	
 	stage('Create and push container') {
       steps {        

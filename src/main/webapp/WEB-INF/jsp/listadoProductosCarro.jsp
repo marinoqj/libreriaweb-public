@@ -364,7 +364,7 @@ function mostrarConfirm(message) {
 					<td>&nbsp;</td>
 					<td>&nbsp;</td>
 					<td>&nbsp;</td>
-					<td align="right"><b>Total: </b><label id="totalLista"><b>${pedido.total}</b></label></td>
+					<td align="right" style="font-weight: 800; font-size: 1rem">Total: <label id="totalLista">${pedido.total}</label> &euro;</td>
 				</tr>
 			</tfoot>
 			</tbody>
@@ -374,8 +374,7 @@ function mostrarConfirm(message) {
 			
 			
 			<div class="row">
-				<div class="col-md-8">&nbsp;</div>
-				<div class="col-md-4">
+				<div class="col text-right">
 					<div id="botones-pedido" style="display: block">
 					<a href="javascript:continuarComprando();" class="btn btn-secondary btn-sm"><i class="fas fa-arrow-alt-circle-left fa-lg mr-2"></i>Continuar comprando</a>
 					<a href="javascript:confirmarPedido();" class="btn btn-primary btn-sm">Confirmar pedido</a>

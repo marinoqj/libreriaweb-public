@@ -163,6 +163,7 @@ function ocultarCapa(idCapa) {
 				<div class="card">
 
 					<!-- Card image -->
+					<br>
 					<img class="card-img-top"
 						src='<spring:url value="/static/imagenes/libros/"/>${producto.nombreFoto}.webp' />
 
@@ -178,7 +179,7 @@ function ocultarCapa(idCapa) {
 							<button class="btn btn-primary btn-sm btn-comprar"
 								onclick="anyadirProducto(${producto.idProducto},'${producto.nombre}' ,${producto.precio})">Comprar</button>
 						</div>
-						<div id="input_${producto.idProducto}" style="display: none;">
+						<div id="input_${producto.idProducto}" style="display: none; padding: 6px;">
 							<i class="fas fa-minus-circle fa-lg"
 								style="color: orange; cursor: pointer"
 								onclick="decrementarProducto(${producto.idProducto})"></i> <label

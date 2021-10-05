@@ -2,45 +2,36 @@ pipeline {
   agent any
 
   tools {
-    jdk 'jdk1.8'
-    maven 'mvn-3.6.3'
+    jdk 'java-11-openjdk'
+    maven 'mvn-3.6.0'
   }
 
   stages {
     stage('Build') {
       steps {
-        withMaven(maven : 'mvn-3.6.3') {
-          bat "mvn package -DskipTests"
+        withMaven(maven : 'mvn-3.6.0') {
+          sh 'mvn package -DskipTests -Pprod'
         }
       }
     }
-
+    
     stage('SonarQube analysis') {
       steps {
         withSonarQubeEnv(installationName: 'sonarqube-server') {
-          withMaven(maven : 'mvn-3.6.3') {
-            bat 'mvn sonar:sonar -Dsonar.dependencyCheck.jsonReportPath=target/dependency-check-report.json -Dsonar.dependencyCheck.xmlReportPath=target/dependency-check-report.xml -Dsonar.dependencyCheck.htmlReportPath=target/dependency-check-report.html'
+          withMaven(maven : 'mvn-3.6.0') {
+            sh 'mvn sonar:sonar -Dsonar.dependencyCheck.jsonReportPath=target/dependency-check-report.json -Dsonar.dependencyCheck.xmlReportPath=target/dependency-check-report.xml -Dsonar.dependencyCheck.htmlReportPath=target/dependency-check-report.html -Dsonar.login=db8b24d389706626c722536a86fd7e4af4f0ea87'
           }
         }
-      }
+      }      
     }
-	
-	
-	stage('Create and push container') {
+    
+    stage('Create and push container') {
       steps {        
-          withMaven(maven : 'mvn-3.6.3') {
-            bat "mvn dockerfile:build dockerfile:push"
+          withMaven(maven : 'mvn-3.6.0') {
+            sh 'mvn dockerfile:build dockerfile:push'
           }
         }
       } 
-    
-    stage('Deploy to K8s') {
-      steps {
-        withKubeConfig([credentialsId: 'kubernetes-config']) {
-          bat "kubectl apply -f libreriaweb-public-deployment.yaml"
-        }
-      } 
-    }    
     
   }
 }

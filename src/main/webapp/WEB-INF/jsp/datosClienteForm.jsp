@@ -149,8 +149,7 @@ function continuarComprando(){
 	
 	
 	<div class="row">
-		<div class="col-md-8">&nbsp;</div>
-		<div class="col-md-4">
+		<div class="col text-right">
 			<a href="javascript:continuarComprando();" class="btn btn-secondary btn-sm"><i class="fas fa-arrow-alt-circle-left fa-lg mr-2"></i>Continuar comprando</a>
 			<button class="btn btn-primary btn-sm">Terminar pedido</button>
 		</div>

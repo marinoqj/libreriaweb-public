@@ -15,7 +15,7 @@ spec:
         tier: frontend
     spec:
       initContainers:
-      - image: marinoqj/libreriaweb-public:1.0.10
+      - image: marinoqj/libreriaweb-public:1.0.11
         imagePullPolicy: Always
         name: war
         command:

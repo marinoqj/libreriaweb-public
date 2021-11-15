@@ -158,9 +158,9 @@ function ocultarCapa(idCapa) {
 
 	<div class="row">
 		<c:forEach items="${productos}" var="producto">
-			<div class="col-lg-3 mb-5">
+			<div class="col-lg-3 col-md-6 mb-5">
 				<!-- Card -->
-				<div class="card">
+				<div class="card h-100">
 
 					<!-- Card image -->
 					<br>
@@ -171,10 +171,11 @@ function ocultarCapa(idCapa) {
 					<div class="card-body">
 
 						<!-- Title -->
-						<span class="card-title"> ${producto.nombre} </span> <br>
+						<span class="card-title"> ${producto.nombre}</span> <br>
 						<!-- Text -->
 						<span class="card-text">${producto.precio} &euro;</span><br>
 						<br>
+
 						<div id="button_${producto.idProducto}" style="display: block;">
 							<button class="btn btn-primary btn-sm btn-comprar"
 								onclick="anyadirProducto(${producto.idProducto},'${producto.nombre}' ,${producto.precio})">Comprar</button>
@@ -188,6 +189,8 @@ function ocultarCapa(idCapa) {
 								style="color: green; cursor: pointer"
 								onclick="incrementarProducto(${producto.idProducto})"></i>
 						</div>
+
+						
 					</div>
 
 				</div>
